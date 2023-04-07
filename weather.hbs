@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>headerLinks}}
+</head>
+
+<body>
+    {{>navbar}}
+
+    <!-- main header  -->
+    <div class="main_header">
+
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+
+                <div class="container-fluid  main_content">
+                  
+                    <form class="temp_form ">
+
+                        <input type="text" id="cityName" placeholder="Enter you city name.." autocomplete="off">
+                        <br>
+                        <input type="submit" value="search" id="submitBtn">
+                        <p id="temp_err"></p>
+                    </form>
+
+                    <div class="tempInformation  ">
+                        <div class="top_layer">
+                            <p id="day">
+                             <script>
+                                let d = new Date();
+                                let day = d.getDay();
+                               
+                                let arr=['sun',"mon","tue","wed","thur","fri","sat"]
+                                
+                                   document.write(arr[day]);
+                                
+                               
+                                console.log(d);
+                            </script>
+                            </p>
+                            
+                            {{!-- <p id="day">Tuesday</p> --}}
+                            {{!-- <p id="today_date">13 oct</p> --}}
+                            <p id="today_date">
+                                <script>
+                                 const today = new Date();
+                                 const yyyy = today.getFullYear();
+                                 let mm = today.getMonth() + 1; // Months start at 0!
+                                 let dd = today.getDate();
+
+                                 if (dd < 10) dd = '0' + dd;
+                                 if (mm < 10) mm = '0' + mm;
+
+                                 const formattedToday = dd + '/' + mm + '/' + yyyy;
+                                 document.write(formattedToday);
+                            </script>
+                            </p>
+                        </div>
+                        <div class="main_layer ">
+                            <p id="city_name">Get output here </p>
+                            <div class="middle_layer data_hide">
+                                <p id="temp"><span id="temp_real_val">0</span><sup>o</sup>C</p>
+                                <p id="temp_status"><i class="fa fa-cloud" aria-hidden="true"></i></p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- footer -->
+
+    <footer>
+        <p>
+            created with ❤ by vidhya bhale
+        </p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
